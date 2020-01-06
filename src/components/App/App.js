@@ -32,7 +32,7 @@ export default class App extends Component {
     );
 
     if (isResult.length > 0) {
-      alert('such name exists');
+      // alert('such name exists');
     } else {
       this.setState(prevState => ({
         contacts: [...prevState.contacts, obj],
