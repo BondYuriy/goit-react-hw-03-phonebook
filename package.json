@@ -52,11 +52,11 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BondYuriy/goit-react-hw-02-feedback.git"
+    "url": "git+https://github.com/BondYuriy/goit-react-hw-03-phonebook.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/BondYuriy/goit-react-hw-02-feedback/issues"
+    "url": "https://github.com/BondYuriy/goit-react-hw-03-phonebook/issues"
   }
 }
