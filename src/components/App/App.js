@@ -12,8 +12,6 @@ export default class App extends Component {
   componentDidMount() {
     const storageContacts = JSON.parse(localStorage.getItem('contacts'));
 
-    console.log('storageContacts: ', storageContacts);
-
     if (storageContacts !== null) {
       this.setState({ contacts: storageContacts });
     }
@@ -60,8 +58,6 @@ export default class App extends Component {
 
   render() {
     const { contacts, filter } = this.state;
-
-    console.log('render: ', contacts);
 
     const filteredFriends = contacts.filter(friend =>
       friend.name.toLocaleLowerCase().includes(filter),
