@@ -1,0 +1,11 @@
+.form {
+  display: inline-block;
+  min-width: 300px;
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+.btn {
+  display: block;
+  margin-top: 25px;
+}
