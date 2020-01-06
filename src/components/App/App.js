@@ -12,7 +12,11 @@ export default class App extends Component {
   componentDidMount() {
     const storageContacts = JSON.parse(localStorage.getItem('contacts'));
 
-    this.setState({ contacts: storageContacts });
+    console.log('storageContacts: ', storageContacts);
+
+    if (storageContacts !== null) {
+      this.setState({ contacts: storageContacts });
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -57,14 +61,11 @@ export default class App extends Component {
   render() {
     const { contacts, filter } = this.state;
 
-    console.log(contacts);
+    console.log('render: ', contacts);
 
-    let filteredFriends;
-    if (contacts !== null) {
-      filteredFriends = contacts.filter(friend =>
-        friend.name.toLocaleLowerCase().includes(filter),
-      );
-    }
+    const filteredFriends = contacts.filter(friend =>
+      friend.name.toLocaleLowerCase().includes(filter),
+    );
 
     return (
       <div>
@@ -73,7 +74,7 @@ export default class App extends Component {
 
         <h2>Contacts</h2>
         <Filter filter={filter} onFilterChange={this.handleFilterChange} />
-        {contacts !== null && (
+        {contacts.length > 0 && (
           <ContactList
             contacts={filteredFriends}
             onDelete={this.deleteContact}
