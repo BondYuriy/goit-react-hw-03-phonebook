@@ -56,9 +56,13 @@ export default class App extends Component {
 
   render() {
     const { contacts, filter } = this.state;
-    const filteredFriends = contacts.filter(friend =>
-      friend.name.toLocaleLowerCase().includes(filter),
-    );
+
+    let filteredFriends;
+    if (contacts.length > 0) {
+      filteredFriends = contacts.filter(friend =>
+        friend.name.toLocaleLowerCase().includes(filter),
+      );
+    }
 
     return (
       <div>
@@ -67,7 +71,12 @@ export default class App extends Component {
 
         <h2>Contacts</h2>
         <Filter filter={filter} onFilterChange={this.handleFilterChange} />
-        <ContactList contacts={filteredFriends} onDelete={this.deleteContact} />
+        {contacts.length > 0 && (
+          <ContactList
+            contacts={filteredFriends}
+            onDelete={this.deleteContact}
+          />
+        )}
       </div>
     );
   }
